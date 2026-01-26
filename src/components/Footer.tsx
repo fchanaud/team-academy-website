@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { getLanguageFromPath, addLanguagePrefix } from '@/lib/utils'
-import { Facebook, ExternalLink } from 'lucide-react'
+import { Facebook, Instagram, ExternalLink } from 'lucide-react'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -89,6 +89,15 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/tennisacademymarrakech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-tertiary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={24} />
               </a>
               <a
                 href="https://www.tripadvisor.fr/Attraction_Review-g293734-d7721316-Reviews-Tennis_Academy_Marrakech-Marrakech_Marrakech_Tensift_El_Haouz_Region.html"
