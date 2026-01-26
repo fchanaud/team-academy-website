@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "home": "HOME",
+    "programs": "PROGRAMS AND RATES",
+    "registrations": "REGISTRATIONS",
+    "about": "ABOUT US",
+    "terms": "TERMS AND CONDITIONS",
+    "gallery": "PHOTO AND VIDEO GALLERY",
+    "contact": "CONTACT"
+  },
+  "home": {
+    "welcome": "WELCOME to \"Tennis Academy Marrakech\"...",
+    "subtitle": "COS-ONE Club, route de Targa",
+    "tagline": "\"The passion for tennis, a school of life!\"",
+    "whatWeOffer": "What TeAM offers:",
+    "children": "Children",
+    "adults": "Adults",
+    "seniors": "Seniors",
+    "services": {
+      "title": "Services",
+      "lessons": "TENNIS LESSONS AND TRAINING",
+      "camps": "CAMPS",
+      "kidsAfternoon": "\"KIDS AFTERNOON\"",
+      "rental": "Rent a tennis court",
+      "stringing": "String your racket",
+      "annualOrOccasional": "Annual or occasional",
+      "forAllLevels": "For ALL and all levels"
+    },
+    "professional": "A professional structure organized by",
+    "coach": {
+      "name": "Patrick Noben",
+      "title": "Belgian Coach",
+      "certification": "Class B-15 for 20 years"
+    },
+    "facility": {
+      "title": "AN EXTRAORDINARY DOMAIN",
+      "subtitle": "Close to the city center",
+      "description": "This family club offers a pleasant and totally secure setting.",
+      "features": {
+        "airy": "An airy, flowered and shaded space.",
+        "courts": "3 clay tennis courts",
+        "basketball": "1 basketball and mini-football court",
+        "parking": "Easy parking"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "phone": "Phone",
+    "call": "Call",
+    "address": "Address",
+    "location": "COS-ONE Club, route de Targa, Marrakech",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent.",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "followUs": "Follow us",
+    "partners": "Partners",
+    "rights": "All rights reserved"
+  },
+  "meta": {
+    "home": {
+      "title": "Tennis Academy Marrakech | Professional Tennis Coaching",
+      "description": "Professional tennis academy in Marrakech offering lessons, training, camps, and court rental. Classes for children, adults, and seniors. Located at COS-ONE Club."
+    },
+    "contact": {
+      "title": "Contact Tennis Academy Marrakech",
+      "description": "Get in touch with Tennis Academy Marrakech. Located at COS-ONE Club, route de Targa, Marrakech."
+    }
+  }
+}

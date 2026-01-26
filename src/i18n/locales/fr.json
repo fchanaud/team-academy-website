@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "home": "ACCUEIL",
+    "programs": "PROGRAMMES ET TARIFS",
+    "registrations": "INSCRIPTIONS",
+    "about": "QUI SOMMES NOUS",
+    "terms": "CONDITIONS GENERALES",
+    "gallery": "GALERIE PHOTOS et VIDEOS",
+    "contact": "CONTACT"
+  },
+  "home": {
+    "welcome": "BIENVENUE à \"Tennis Academy Marrakech\"...",
+    "subtitle": "Club du COS-ONE, route de Targa",
+    "tagline": "\"La passion du tennis, une école de vie!\"",
+    "whatWeOffer": "Ce que TeAM propose:",
+    "children": "Enfants",
+    "adults": "Adultes",
+    "seniors": "Seniors",
+    "services": {
+      "title": "Services",
+      "lessons": "COURS ET ENTRAÎNEMENTS DE TENNIS",
+      "camps": "STAGES",
+      "kidsAfternoon": "\"KIDS AFTERNOON\"",
+      "rental": "Louer un terrain de tennis",
+      "stringing": "Corder votre raquette",
+      "annualOrOccasional": "Annuels ou occasionnels",
+      "forAllLevels": "Pour TOUS et tous les niveaux"
+    },
+    "professional": "Une structure professionnelle organisée par",
+    "coach": {
+      "name": "Patrick Noben",
+      "title": "Entraîneur Belge",
+      "certification": "Classé B-15 depuis 20 ans"
+    },
+    "facility": {
+      "title": "1 DOMAINE EXTRAORDINAIRE",
+      "subtitle": "Proche du centre ville",
+      "description": "Ce club familial offre un cadre agréable et totalement sécurisé.",
+      "features": {
+        "airy": "Un espace aéré, fleuri et ombragé.",
+        "courts": "3 terrains de tennis en terre battue",
+        "basketball": "1 terrain de basket et mini-foot",
+        "parking": "Parking facile"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "phone": "Téléphone",
+    "call": "Appeler",
+    "address": "Adresse",
+    "location": "Club du COS-ONE, route de Targa, Marrakech",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Merci ! Votre message a été envoyé.",
+      "error": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "followUs": "Suivez-nous",
+    "partners": "Partners",
+    "rights": "Tous droits réservés"
+  },
+  "meta": {
+    "home": {
+      "title": "Tennis Academy Marrakech | Coaching de Tennis Professionnel",
+      "description": "Académie de tennis professionnelle à Marrakech proposant des cours, entraînements, stages et location de courts. Cours pour enfants, adultes et seniors. Situé au Club COS-ONE."
+    },
+    "contact": {
+      "title": "Contactez Tennis Academy Marrakech",
+      "description": "Contactez Tennis Academy Marrakech. Situé au Club du COS-ONE, route de Targa, Marrakech."
+    }
+  }
+}

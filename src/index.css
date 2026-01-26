@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%; /* Light neutral background */
+    --foreground: 222 47% 11%; /* Dark slate text */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 9 100% 64%; /* Grapefruit red - primary CTAs */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 142 71% 45%; /* Lime/leaf green - WhatsApp & secondary actions */
+    --secondary-foreground: 0 0% 100%;
+    --tertiary: 217 91% 60%; /* Blue - modern accent */
+    --tertiary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 9 100% 95%; /* Light grapefruit for accents */
+    --accent-foreground: 9 100% 40%;
+    --accent-green: 142 71% 95%; /* Light green for accents */
+    --accent-green-foreground: 142 71% 30%;
+    --accent-blue: 217 91% 95%; /* Light blue for accents */
+    --accent-blue-foreground: 217 91% 30%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 9 100% 64%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
