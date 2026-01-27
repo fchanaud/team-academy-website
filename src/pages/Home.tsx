@@ -6,7 +6,7 @@ import { Hero } from '@/components/sections/Hero'
 import { ContentBlock } from '@/components/sections/ContentBlock'
 import { CardGrid } from '@/components/sections/CardGrid'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Phone } from 'lucide-react'
+import patrickImage from '../public/images/home/patrick.jpg'
 
 export function Home() {
   const { t } = useTranslation()
@@ -103,15 +103,26 @@ export function Home() {
       </ContentBlock>
 
       <ContentBlock variant="muted">
-        <div className="text-center mb-8">
-          <p className="text-lg mb-6 text-foreground font-medium">{t('home.professional')}</p>
-          <Card className="max-w-md mx-auto border-2 border-primary/20 shadow-lg">
-            <CardHeader className="bg-primary/5">
-              <CardTitle className="text-2xl text-primary">{t('home.coach.name')}</CardTitle>
+        <div className="mb-8">
+          <p className="text-lg mb-6 text-foreground font-medium text-center">{t('home.professional')}</p>
+          <Card className="max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto border-2 border-primary/20 shadow-lg overflow-hidden">
+            <CardHeader className="bg-primary/5 py-4">
+              <CardTitle className="text-2xl md:text-3xl lg:text-4xl text-primary">{t('home.coach.name')}</CardTitle>
             </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-foreground mb-2 font-medium">{t('home.coach.title')}</p>
-              <p className="text-sm text-muted-foreground">{t('home.coach.certification')}</p>
+            <CardContent className="pt-4 md:pt-5">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center">
+                <div className="w-full md:w-48 lg:w-56 xl:w-64 flex-shrink-0">
+                  <img
+                    src={patrickImage}
+                    alt={t('home.coach.name')}
+                    className="w-full h-auto rounded-lg object-cover shadow-md max-h-64 md:max-h-72 lg:max-h-80"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-foreground mb-2 font-medium text-base md:text-lg lg:text-xl">{t('home.coach.title')}</p>
+                  <p className="text-sm md:text-base text-muted-foreground">{t('home.coach.certification')}</p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -126,45 +137,34 @@ export function Home() {
           <p className="text-xl text-muted-foreground mb-6">{t('home.facility.subtitle')}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
-          <div>
-            <p className="text-lg mb-4">{t('home.facility.description')}</p>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex items-start">
-                <span className="text-primary mr-2 font-bold">•</span>
-                <span>{t('home.facility.features.airy')}</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-secondary mr-2 font-bold">•</span>
-                <span>{t('home.facility.features.courts')}</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-tertiary mr-2 font-bold">•</span>
-                <span>{t('home.facility.features.basketball')}</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-primary mr-2 font-bold">•</span>
-                <span>{t('home.facility.features.parking')}</span>
-              </li>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Court Image</span>
-            </div>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground text-sm">Facility Image</span>
-            </div>
-          </div>
+        <div className="mb-8">
+          <p className="text-lg mb-4">{t('home.facility.description')}</p>
+          <ul className="space-y-3 text-muted-foreground max-w-2xl mx-auto">
+            <li className="flex items-start">
+              <span className="text-primary mr-2 font-bold">•</span>
+              <span>{t('home.facility.features.airy')}</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-secondary mr-2 font-bold">•</span>
+              <span>{t('home.facility.features.courts')}</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-tertiary mr-2 font-bold">•</span>
+              <span>{t('home.facility.features.basketball')}</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mr-2 font-bold">•</span>
+              <span>{t('home.facility.features.parking')}</span>
+            </li>
+          </ul>
         </div>
 
         <div className="text-center">
           <a
             href="tel:00212653890162"
-            className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium shadow-md"
+            className="inline-flex items-center space-x-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-all shadow-sm hover:shadow-md whitespace-nowrap"
           >
-            <Phone size={20} />
-            <span>+212 653 890 162</span>
+            <span>Whatsapp: +212 653 890 162</span>
           </a>
         </div>
       </ContentBlock>

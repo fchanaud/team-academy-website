@@ -12,8 +12,12 @@ import { WhatsAppWidget } from './components/WhatsAppWidget'
 import { useScrollToTop } from './hooks/useScrollToTop'
 import { Home } from './pages/Home'
 import { Programs } from './pages/Programs'
-import { Registrations } from './pages/Registrations'
-import { About } from './pages/About'
+import { BabyTennis } from './pages/BabyTennis'
+import { MiniTennis } from './pages/MiniTennis'
+import { KidsAfternoon } from './pages/KidsAfternoon'
+import { IndividualLessons } from './pages/IndividualLessons'
+import { PlayAtClub } from './pages/PlayAtClub'
+import { Camps } from './pages/Camps'
 import { Terms } from './pages/Terms'
 import { Gallery } from './pages/Gallery'
 import { Contact } from './pages/Contact'
@@ -45,8 +49,12 @@ function AppRoutes() {
       {/* English routes */}
       <Route path="/en" element={<Home />} />
       <Route path="/en/programs" element={<Programs />} />
-      <Route path="/en/registrations" element={<Registrations />} />
-      <Route path="/en/about" element={<About />} />
+      <Route path="/en/programs/baby-tennis" element={<BabyTennis />} />
+      <Route path="/en/programs/mini-tennis" element={<MiniTennis />} />
+      <Route path="/en/programs/kids-afternoon" element={<KidsAfternoon />} />
+      <Route path="/en/programs/individual-lessons" element={<IndividualLessons />} />
+      <Route path="/en/programs/play-at-club" element={<PlayAtClub />} />
+      <Route path="/en/programs/camps" element={<Camps />} />
       <Route path="/en/terms" element={<Terms />} />
       <Route path="/en/gallery" element={<Gallery />} />
       <Route path="/en/contact" element={<Contact />} />
@@ -54,8 +62,12 @@ function AppRoutes() {
       {/* French routes */}
       <Route path="/fr" element={<Home />} />
       <Route path="/fr/programs" element={<Programs />} />
-      <Route path="/fr/registrations" element={<Registrations />} />
-      <Route path="/fr/about" element={<About />} />
+      <Route path="/fr/programs/baby-tennis" element={<BabyTennis />} />
+      <Route path="/fr/programs/mini-tennis" element={<MiniTennis />} />
+      <Route path="/fr/programs/kids-afternoon" element={<KidsAfternoon />} />
+      <Route path="/fr/programs/individual-lessons" element={<IndividualLessons />} />
+      <Route path="/fr/programs/play-at-club" element={<PlayAtClub />} />
+      <Route path="/fr/programs/camps" element={<Camps />} />
       <Route path="/fr/terms" element={<Terms />} />
       <Route path="/fr/gallery" element={<Gallery />} />
       <Route path="/fr/contact" element={<Contact />} />
@@ -75,7 +87,7 @@ function App() {
           <div className="min-h-screen flex flex-col">
             <CampBanner />
             <Navigation />
-            <main className="flex-1 pt-16">
+            <main className="flex-1 pt-20 sm:pt-24 md:pt-28">
               <AppRoutes />
             </main>
             <Footer />

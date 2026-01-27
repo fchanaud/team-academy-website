@@ -1,11 +1,19 @@
 {
   "nav": {
     "home": "ACCUEIL",
-    "programs": "PROGRAMMES ET TARIFS",
+    "programs": "TARIFS",
+    "programsSubmenu": {
+      "babyTennis": "Baby-Tennis",
+      "miniTennis": "Mini-Tennis",
+      "kidsAfternoon": "Kids Afternoon",
+      "individualLessons": "Cours Individuels",
+      "playAtClub": "Jouer au Club",
+      "camps": "Stages locaux et Internationaux"
+    },
     "registrations": "INSCRIPTIONS",
     "about": "QUI SOMMES NOUS",
     "terms": "CONDITIONS GENERALES",
-    "gallery": "GALERIE PHOTOS et VIDEOS",
+    "gallery": "GALERIE PHOTOS",
     "contact": "CONTACT"
   },
   "home": {
@@ -26,7 +34,7 @@
       "annualOrOccasional": "Annuels ou occasionnels",
       "forAllLevels": "Pour TOUS et tous les niveaux"
     },
-    "professional": "Une structure professionnelle organisée par",
+    "professional": "Une structure professionnelle organisée par Patrick",
     "coach": {
       "name": "Patrick Noben",
       "title": "Entraîneur Belge",
@@ -64,6 +72,32 @@
     "followUs": "Suivez-nous",
     "partners": "Partners",
     "rights": "Tous droits réservés"
+  },
+  "programs": {
+    "babyTennis": {
+      "description": "Programme Baby-Tennis pour les jeunes enfants à Tennis Academy Marrakech.",
+      "content": "Notre programme Baby-Tennis est conçu pour les plus jeunes joueurs, leur faisant découvrir le tennis à travers des activités amusantes et engageantes. Ce programme aide les enfants à développer leurs compétences motrices, leur coordination et leur amour du sport dans un environnement sûr et bienveillant."
+    },
+    "miniTennis": {
+      "description": "Programme Mini-Tennis pour enfants à Tennis Academy Marrakech.",
+      "content": "Le Mini-Tennis est parfait pour les enfants qui sont prêts à faire leurs premiers pas dans le tennis. En utilisant un équipement adapté et des terrains plus petits, les enfants apprennent les fondamentaux du tennis tout en s'amusant et en prenant confiance."
+    },
+    "kidsAfternoon": {
+      "description": "Programme Kids Afternoon - programme spécial pour enfants à Tennis Academy Marrakech.",
+      "content": "Notre programme Kids Afternoon offre un programme spécial d'après-midi conçu spécifiquement pour les enfants. Ce programme combine l'entraînement de tennis avec des activités amusantes, offrant un équilibre parfait entre apprentissage et plaisir pour les jeunes joueurs."
+    },
+    "individualLessons": {
+      "description": "Cours individuels de tennis à Tennis Academy Marrakech.",
+      "content": "Les cours individuels offrent un coaching personnalisé adapté à vos besoins et objectifs spécifiques. Que vous soyez débutant ou joueur avancé, nos entraîneurs professionnels travailleront avec vous en tête-à-tête pour améliorer votre technique, votre stratégie et votre jeu global."
+    },
+    "playAtClub": {
+      "description": "Jouer au Club - location de courts et adhésion au club à Tennis Academy Marrakech.",
+      "content": "Venez jouer dans notre club ! Nous proposons des services de location de courts et des options d'adhésion au club. Profitez de nos excellentes installations comprenant des terrains de tennis en terre battue, des terrains de basket et mini-foot, le tout dans un cadre agréable et sécurisé."
+    },
+    "camps": {
+      "description": "Stages de tennis locaux et internationaux à Tennis Academy Marrakech.",
+      "content": "Rejoignez nos stages de tennis intensifs, disponibles à la fois localement et pour les participants internationaux. Nos stages offrent des programmes d'entraînement complets, combinant instruction technique, conditionnement physique et matchs. Parfait pour les joueurs souhaitant améliorer leur jeu pendant les vacances scolaires ou les congés."
+    }
   },
   "meta": {
     "home": {

@@ -50,14 +50,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to={getLocalizedPath('/about')}
-                  className="text-sm text-slate-300 hover:text-primary transition-colors"
-                >
-                  {t('nav.about')}
-                </Link>
-              </li>
-              <li>
-                <Link
                   to={getLocalizedPath('/gallery')}
                   className="text-sm text-slate-300 hover:text-primary transition-colors"
                 >
