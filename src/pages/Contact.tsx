@@ -99,9 +99,9 @@ export function Contact() {
         <meta property="og:description" content={t('meta.contact.description')} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/contact`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/contact`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/contact`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/contact`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

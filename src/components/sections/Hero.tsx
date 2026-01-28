@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
 
 interface HeroProps {
@@ -28,7 +27,7 @@ export function Hero({ title, subtitle, description, image, imageAlt }: HeroProp
   }
 
   return (
-    <section className={`relative ${image ? 'min-h-[50vh] md:min-h-[55vh] lg:min-h-[60vh]' : 'pt-12 pb-8 md:pt-16 md:pb-12'} flex items-center justify-center overflow-hidden`}>
+    <section className={`relative ${image ? 'min-h-[55vh] md:min-h-[60vh] lg:min-h-[65vh]' : 'pt-12 pb-8 md:pt-16 md:pb-12'} flex items-center justify-center overflow-hidden`}>
       {image && (
         <>
           <div className="absolute inset-0 z-0 overflow-hidden">

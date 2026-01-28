@@ -17,9 +17,9 @@ export function BabyTennis() {
         <title>{t('nav.programsSubmenu.babyTennis')} | Tennis Academy Marrakech</title>
         <meta name="description" content={t('programs.babyTennis.description')} />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/programs/baby-tennis`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs/baby-tennis`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/programs/baby-tennis`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs/baby-tennis`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.programsSubmenu.babyTennis')} />

@@ -47,9 +47,9 @@ export function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.home.title')} />
         <meta name="twitter:description" content={t('meta.home.description')} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

@@ -17,9 +17,9 @@ export function Marrakech() {
         <title>{t('nav.marrakech')} | Tennis Academy Marrakech</title>
         <meta name="description" content="Discover Marrakech and combine tennis with an amazing travel experience." />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/marrakech`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/marrakech`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/marrakech`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/marrakech`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.marrakech')} />

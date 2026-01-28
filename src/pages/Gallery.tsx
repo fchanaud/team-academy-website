@@ -48,9 +48,9 @@ export function Gallery() {
         <title>{t('nav.gallery')} | Tennis Academy Marrakech</title>
         <meta name="description" content="Photo gallery of Tennis Academy Marrakech." />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/gallery`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/gallery`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/gallery`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/gallery`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.gallery')} />

@@ -18,9 +18,9 @@ export function Programs() {
         <title>{t('nav.programs')} | Tennis Academy Marrakech</title>
         <meta name="description" content="Tennis programs and training options at Tennis Academy Marrakech." />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/programs`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/programs`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.programs')} />

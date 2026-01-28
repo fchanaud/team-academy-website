@@ -14,7 +14,7 @@ import {
 import logoImage from '../public/images/home/logo.png'
 
 export function Navigation() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
   const currentLang = getLanguageFromPath(location.pathname)

@@ -24,7 +24,6 @@ export function CardGrid({ cards, columns = 3 }: CardGridProps) {
         const colorIndex = index % 3
         const isRed = colorIndex === 0
         const isGreen = colorIndex === 1
-        const isBlue = colorIndex === 2
         
         const colorClasses = {
           border: isRed ? 'border-primary/20 hover:border-primary/40' : 

@@ -17,9 +17,9 @@ export function KidsAfternoon() {
         <title>{t('nav.programsSubmenu.kidsAfternoon')} | Tennis Academy Marrakech</title>
         <meta name="description" content={t('programs.kidsAfternoon.description')} />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/programs/kids-afternoon`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs/kids-afternoon`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/programs/kids-afternoon`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/programs/kids-afternoon`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.programsSubmenu.kidsAfternoon')} />

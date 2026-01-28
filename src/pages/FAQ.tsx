@@ -55,9 +55,9 @@ export function FAQ() {
         <title>{t('nav.faq')} | Tennis Academy Marrakech</title>
         <meta name="description" content="Frequently asked questions about Tennis Academy Marrakech." />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/faq`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/faq`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/faq`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/faq`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
         <script type="application/ld+json">
           {JSON.stringify(faqStructuredData)}
         </script>
@@ -71,7 +71,6 @@ export function FAQ() {
             const colorIndex = index % 3
             const isRed = colorIndex === 0
             const isGreen = colorIndex === 1
-            const isBlue = colorIndex === 2
             
             const colorClasses = {
               border: isRed ? 'hover:border-primary/30' : 

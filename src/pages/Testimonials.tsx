@@ -38,9 +38,9 @@ export function Testimonials() {
         <title>{t('nav.testimonials')} | Tennis Academy Marrakech</title>
         <meta name="description" content="Read testimonials from our students and visitors." />
         <link rel="canonical" href={canonicalUrl} />
-        {lang === 'fr' && <link rel="alternate" hreflang="en" href={`https://www.tennisacademymarrakech.com/en/testimonials`} />}
-        {lang === 'en' && <link rel="alternate" hreflang="fr" href={`https://www.tennisacademymarrakech.com/fr/testimonials`} />}
-        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        {lang === 'fr' && <link rel="alternate" hrefLang="en" href={`https://www.tennisacademymarrakech.com/en/testimonials`} />}
+        {lang === 'en' && <link rel="alternate" hrefLang="fr" href={`https://www.tennisacademymarrakech.com/fr/testimonials`} />}
+        <link rel="alternate" hrefLang={lang} href={canonicalUrl} />
       </Helmet>
 
       <Hero title={t('nav.testimonials')} />
@@ -51,7 +51,6 @@ export function Testimonials() {
             const colorIndex = index % 3
             const isRed = colorIndex === 0
             const isGreen = colorIndex === 1
-            const isBlue = colorIndex === 2
             
             const colorClasses = {
               border: isRed ? 'border-primary/20 hover:border-primary/40' : 
