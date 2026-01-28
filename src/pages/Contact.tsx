@@ -12,16 +12,10 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Phone, MapPin } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import useWeb3Forms from '@web3forms/react'
+import { FormModal } from '@/components/FormModal'
 import patrickImage from '../public/images/home/patrick.jpg'
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
 
 export function Contact() {
   const { t } = useTranslation()
@@ -29,6 +23,41 @@ export function Contact() {
   const lang = getLanguageFromPath(location.pathname)
   const canonicalUrl = `https://www.tennisacademymarrakech.com/${lang === 'fr' ? 'fr' : 'en'}/contact`
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const formCardRef = useRef<HTMLDivElement>(null)
+  const contactCardRef = useRef<HTMLDivElement>(null)
+  const leftColumnRef = useRef<HTMLDivElement>(null)
+  const mapContainerRef = useRef<HTMLDivElement>(null)
+  const [mapHeight, setMapHeight] = useState<number | null>(null)
+
+  // Create schema with translated error messages
+  const contactSchema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(2, t('contact.form.validation.nameMin')),
+        email: z
+          .string()
+          .min(1, t('contact.form.validation.emailInvalid'))
+          .email(t('contact.form.validation.emailInvalid')),
+        whatsapp: z
+          .string()
+          .optional()
+          .refine(
+            (val) => {
+              if (!val || val.trim() === '') return true
+              // Remove spaces, dashes, parentheses for validation
+              const cleaned = val.replace(/[\s\-\(\)]/g, '')
+              // Check if it starts with + and has digits, or just digits
+              return /^\+?[1-9]\d{8,14}$/.test(cleaned)
+            },
+            t('contact.form.validation.whatsappInvalid')
+          ),
+        message: z.string().min(10, t('contact.form.validation.messageMin')),
+        botcheck: z.boolean().optional(),
+      }),
+    [t, lang]
+  )
+
+  type ContactFormData = z.infer<typeof contactSchema>
 
   const {
     register,
@@ -37,50 +66,80 @@ export function Contact() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    mode: 'onBlur',
   })
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      setSubmitStatus('idle')
-      
-      // Using Formspree - free email service
-      // 1. Go to https://formspree.io and sign up (free)
-      // 2. Create a new form with email: franklin.dechanaud@gmail.com
-      // 3. Copy your form endpoint (looks like: https://formspree.io/f/xxxxxxxxxx)
-      // 4. Replace 'YOUR_FORMSPREE_ENDPOINT' below with your endpoint
-      
-      const FORMSPREE_ENDPOINT = 'YOUR_FORMSPREE_ENDPOINT' // e.g., 'https://formspree.io/f/xxxxxxxxxx'
-      
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          message: data.message,
-        }),
-      })
+  // Web3Forms Access Key
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '8bea463e-5b26-4109-a0b5-3c565acd5a03'
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        reset()
-        setTimeout(() => {
-          setSubmitStatus('idle')
-        }, 5000)
-      } else {
-        throw new Error('Failed to send email')
-      }
-    } catch (error) {
-      console.error('Error sending email:', error)
+  const { submit: onSubmit } = useWeb3Forms({
+    access_key: accessKey,
+    settings: {
+      from_name: 'Tennis Academy Marrakech Contact Form',
+      subject: 'New Contact Message from Tennis Academy Marrakech Website',
+    },
+    onSuccess: () => {
+      setSubmitStatus('success')
+      reset()
+    },
+    onError: () => {
       setSubmitStatus('error')
-      
-      // Fallback: Use mailto link if API fails
-      const mailtoLink = `mailto:franklin.dechanaud@gmail.com?subject=Contact from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(`From: ${data.email}\n\nMessage:\n${data.message}`)}`
-      window.location.href = mailtoLink
-    }
+    },
+  })
+
+  const handleCloseModal = () => {
+    setSubmitStatus('idle')
   }
+
+  // Match left column (contact card + map) height to form card height
+  useEffect(() => {
+    const updateMapHeight = () => {
+      if (formCardRef.current && contactCardRef.current && mapContainerRef.current && leftColumnRef.current) {
+        const formHeight = formCardRef.current.offsetHeight
+        const contactCardHeight = contactCardRef.current.offsetHeight
+        // Gap between contact card and map is space-y-6 (1.5rem = 24px)
+        const gap = 24
+        // Calculate map height: form height - contact card height - gap
+        // Ensure map doesn't exceed form height, but allow contact card to be fully visible
+        const calculatedMapHeight = Math.max(300, formHeight - contactCardHeight - gap)
+        // Only update if we have valid measurements
+        if (formHeight > 0 && contactCardHeight > 0) {
+          setMapHeight(calculatedMapHeight)
+        }
+      }
+    }
+
+    // Initial measurement with a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(updateMapHeight, 100)
+
+    // Update on window resize
+    window.addEventListener('resize', updateMapHeight)
+    
+    // Use ResizeObserver for more accurate tracking
+    let formResizeObserver: ResizeObserver | null = null
+    let contactResizeObserver: ResizeObserver | null = null
+    
+    if (formCardRef.current && window.ResizeObserver) {
+      formResizeObserver = new ResizeObserver(updateMapHeight)
+      formResizeObserver.observe(formCardRef.current)
+    }
+    
+    if (contactCardRef.current && window.ResizeObserver) {
+      contactResizeObserver = new ResizeObserver(updateMapHeight)
+      contactResizeObserver.observe(contactCardRef.current)
+    }
+
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', updateMapHeight)
+      if (formResizeObserver) {
+        formResizeObserver.disconnect()
+      }
+      if (contactResizeObserver) {
+        contactResizeObserver.disconnect()
+      }
+    }
+  }, [])
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -110,10 +169,10 @@ export function Contact() {
       <Hero title={t('contact.title')} />
 
       <ContentBlock reduceBottomPadding>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <Card className="border-2 border-secondary/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-end">
+            <div ref={leftColumnRef} className="space-y-6 order-2 md:order-1 flex flex-col">
+              <Card ref={contactCardRef} className="border-2 border-secondary/20">
               <CardHeader className="bg-accent-green/30">
                 <CardTitle className="text-secondary">{t('contact.title')}</CardTitle>
               </CardHeader>
@@ -149,7 +208,11 @@ export function Contact() {
 
             {/* Google Map */}
             <div className="w-full">
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border border-border">
+              <div 
+                ref={mapContainerRef} 
+                className="relative w-full rounded-lg overflow-hidden shadow-lg border border-border" 
+                style={mapHeight ? { height: `${mapHeight}px`, maxHeight: `${mapHeight}px` } : { minHeight: '400px', aspectRatio: '4/3' }}
+              >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.5!2d-7.981234567890!3d31.628901234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafeeeb6677a635%3A0x2936795494e33117!2sTennis%20Academy%20Marrakech!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%"
@@ -163,14 +226,23 @@ export function Contact() {
                 />
               </div>
             </div>
-          </div>
+            </div>
 
-          <Card className="border-2 border-primary/20">
+            <div className="flex flex-col order-1 md:order-2">
+            <Card ref={formCardRef} className="border-2 border-primary/20 flex flex-col">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-primary">{t('contact.form.send')}</CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <CardContent className="flex-1 flex flex-col">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-1 flex flex-col">
+                {/* Hidden botcheck field for spam protection */}
+                <input
+                  type="checkbox"
+                  id="botcheck"
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  {...register('botcheck', { value: false })}
+                />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
                     {t('contact.form.name')}
@@ -201,6 +273,22 @@ export function Contact() {
                 </div>
 
                 <div>
+                  <label htmlFor="whatsapp" className="block text-sm font-medium mb-1">
+                    {t('contact.form.whatsapp')} <span className="text-muted-foreground font-normal">({t('contact.form.optional')})</span>
+                  </label>
+                  <Input
+                    id="whatsapp"
+                    type="tel"
+                    placeholder={t('contact.form.whatsappPlaceholder')}
+                    {...register('whatsapp')}
+                    className={errors.whatsapp ? 'border-destructive' : ''}
+                  />
+                  {errors.whatsapp && (
+                    <p className="text-sm text-destructive mt-1">{errors.whatsapp.message}</p>
+                  )}
+                </div>
+
+                <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-1">
                     {t('contact.form.message')}
                   </label>
@@ -215,28 +303,22 @@ export function Contact() {
                   )}
                 </div>
 
-                {submitStatus === 'success' && (
-                  <div className="p-3 bg-green-50 border border-green-200 rounded-md text-green-800 text-sm">
-                    {t('contact.form.success')}
-                  </div>
-                )}
-                {submitStatus === 'error' && (
-                  <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-800 text-sm">
-                    {t('contact.form.error')}
-                  </div>
-                )}
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90">
-                  {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
-                </Button>
+                <div className="mt-auto">
+                  <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90">
+                    {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
+                  </Button>
+                </div>
               </form>
             </CardContent>
           </Card>
+            </div>
+          </div>
         </div>
       </ContentBlock>
 
       <ContentBlock variant="muted" className="py-4 md:py-6 lg:py-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
+          <p className="text-lg md:text-xl lg:text-2xl mb-3 mt-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
           <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md overflow-hidden">
             <div className="flex flex-col md:flex-row">
               {/* Image Section */}
@@ -267,6 +349,26 @@ export function Contact() {
           </div>
         </div>
       </ContentBlock>
+
+      {/* Success Modal */}
+      <FormModal
+        isOpen={submitStatus === 'success'}
+        onClose={handleCloseModal}
+        type="success"
+        title={t('contact.form.modal.success.title')}
+        message={t('contact.form.modal.success.message')}
+        closeText={t('contact.form.modal.success.close')}
+      />
+
+      {/* Error Modal */}
+      <FormModal
+        isOpen={submitStatus === 'error'}
+        onClose={handleCloseModal}
+        type="error"
+        title={t('contact.form.modal.error.title')}
+        message={t('contact.form.modal.error.message')}
+        closeText={t('contact.form.modal.error.close')}
+      />
     </>
   )
 }

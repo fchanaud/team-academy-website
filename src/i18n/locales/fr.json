@@ -63,11 +63,32 @@
     "form": {
       "name": "Nom",
       "email": "Email",
+      "whatsapp": "Numéro WhatsApp",
+      "whatsappPlaceholder": "ex. +212 653 890 162",
+      "optional": "Optionnel",
       "message": "Message",
       "send": "Envoyer le message",
       "sending": "Envoi en cours...",
       "success": "Merci ! Votre message a été envoyé.",
-      "error": "Une erreur s'est produite. Veuillez réessayer."
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
+      "validation": {
+        "nameMin": "Le nom doit contenir au moins 2 caractères",
+        "emailInvalid": "Adresse e-mail invalide",
+        "whatsappInvalid": "Veuillez entrer un numéro WhatsApp valide (ex. +212 653 890 162)",
+        "messageMin": "Le message doit contenir au moins 10 caractères"
+      },
+      "modal": {
+        "success": {
+          "title": "Message envoyé avec succès !",
+          "message": "Merci de m'avoir contacté ! J'ai bien reçu votre message et je vous répondrai dans les 24 heures.",
+          "close": "Fermer"
+        },
+        "error": {
+          "title": "Erreur lors de l'envoi",
+          "message": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer plus tard ou nous contacter directement.",
+          "close": "Fermer"
+        }
+      }
     }
   },
   "footer": {

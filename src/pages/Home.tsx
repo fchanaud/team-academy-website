@@ -5,6 +5,7 @@ import { getLanguageFromPath, addLanguagePrefix } from '@/lib/utils'
 import { Hero } from '@/components/sections/Hero'
 import { ContentBlock } from '@/components/sections/ContentBlock'
 import { ArrowRight } from 'lucide-react'
+import { useRef, useEffect, useState } from 'react'
 import patrickImage from '../public/images/home/patrick.jpg'
 import heroImage from '../public/images/home/uepsSEiv1v5F6YPL.jpg'
 
@@ -13,6 +14,44 @@ export function Home() {
   const location = useLocation()
   const lang = getLanguageFromPath(location.pathname)
   const canonicalUrl = `https://www.tennisacademymarrakech.com/${lang === 'fr' ? 'fr' : 'en'}`
+  const leftColumnRef = useRef<HTMLDivElement>(null)
+  const mapContainerRef = useRef<HTMLDivElement>(null)
+  const [mapHeight, setMapHeight] = useState<number | null>(null)
+
+  // Match map height to left column height on iPad and desktop
+  useEffect(() => {
+    const updateMapHeight = () => {
+      // Only apply on md (iPad) and larger screens
+      if (window.innerWidth >= 768 && leftColumnRef.current && mapContainerRef.current) {
+        const leftColumnHeight = leftColumnRef.current.offsetHeight
+        setMapHeight(leftColumnHeight)
+      } else {
+        // Reset to auto/aspect ratio on mobile
+        setMapHeight(null)
+      }
+    }
+
+    // Initial measurement with a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(updateMapHeight, 100)
+
+    // Update on window resize
+    window.addEventListener('resize', updateMapHeight)
+    
+    // Use ResizeObserver for more accurate tracking
+    let resizeObserver: ResizeObserver | null = null
+    if (leftColumnRef.current && window.ResizeObserver) {
+      resizeObserver = new ResizeObserver(updateMapHeight)
+      resizeObserver.observe(leftColumnRef.current)
+    }
+
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', updateMapHeight)
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+    }
+  }, [])
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -161,7 +200,7 @@ export function Home() {
       <ContentBlock>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Column - Content */}
-          <div className="order-1">
+          <div ref={leftColumnRef} className="order-1">
             <div className="text-center lg:text-left mb-4 md:mb-5">
               <div className="inline-block mb-3 md:mb-4">
                 <div className="h-1 w-16 bg-secondary mx-auto lg:mx-0"></div>
@@ -204,7 +243,11 @@ export function Home() {
 
           {/* Right Column - Google Map */}
           <div className="order-2">
-            <div className="relative w-full aspect-video lg:aspect-square rounded-lg overflow-hidden shadow-lg border border-border">
+            <div 
+              ref={mapContainerRef}
+              className="relative w-full rounded-lg overflow-hidden shadow-lg border border-border"
+              style={mapHeight ? { height: `${mapHeight}px` } : { aspectRatio: '16/9' }}
+            >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.5!2d-7.981234567890!3d31.628901234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafeeeb6677a635%3A0x2936795494e33117!2sTennis%20Academy%20Marrakech!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                 width="100%"

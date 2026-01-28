@@ -63,11 +63,32 @@
     "form": {
       "name": "Name",
       "email": "Email",
+      "whatsapp": "WhatsApp Number",
+      "whatsappPlaceholder": "e.g., +212 653 890 162",
+      "optional": "Optional",
       "message": "Message",
       "send": "Send Message",
       "sending": "Sending...",
       "success": "Thank you! Your message has been sent.",
-      "error": "An error occurred. Please try again."
+      "error": "An error occurred. Please try again.",
+      "validation": {
+        "nameMin": "Name must be at least 2 characters",
+        "emailInvalid": "Invalid email address",
+        "whatsappInvalid": "Please enter a valid WhatsApp number (e.g., +212 653 890 162)",
+        "messageMin": "Message must be at least 10 characters"
+      },
+      "modal": {
+        "success": {
+          "title": "Message Sent Successfully!",
+          "message": "Thank you for contacting me! I've received your message and will get back to you within 24 hours.",
+          "close": "Close"
+        },
+        "error": {
+          "title": "Error Sending Message",
+          "message": "Sorry, there was an error sending your message. Please try again later or contact us directly.",
+          "close": "Close"
+        }
+      }
     }
   },
   "footer": {
