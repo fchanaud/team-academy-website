@@ -57,7 +57,7 @@ export function Gallery() {
 
       <ContentBlock>
         {/* Mobile Carousel */}
-        <div className="md:hidden mb-8">
+        <div className="md:hidden mb-6">
           <ImageCarousel images={galleryImages} autoPlayInterval={4000} />
         </div>
 

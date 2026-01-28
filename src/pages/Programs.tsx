@@ -26,7 +26,7 @@ export function Programs() {
       <Hero title={t('nav.programs')} />
 
       <ContentBlock>
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="inline-block mb-4">
             <div className="flex items-center justify-center gap-2">
               <div className="h-1 w-12 bg-primary rounded-full"></div>

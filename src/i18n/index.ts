@@ -3,6 +3,15 @@ import { initReactI18next } from 'react-i18next'
 import enTranslations from './locales/en.json'
 import frTranslations from './locales/fr.json'
 
+// Detect initial language from URL
+const getInitialLanguage = (): 'en' | 'fr' => {
+  if (typeof window !== 'undefined') {
+    const pathname = window.location.pathname
+    if (pathname.startsWith('/fr')) return 'fr'
+  }
+  return 'en'
+}
+
 i18n
   .use(initReactI18next)
   .init({
@@ -14,10 +23,13 @@ i18n
         translation: frTranslations,
       },
     },
-    lng: 'en',
+    lng: getInitialLanguage(),
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
+    },
+    react: {
+      useSuspense: false,
     },
   })
 

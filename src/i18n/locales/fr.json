@@ -32,13 +32,15 @@
       "rental": "Louer un terrain de tennis",
       "stringing": "Corder votre raquette",
       "annualOrOccasional": "Annuels ou occasionnels",
-      "forAllLevels": "Pour TOUS et tous les niveaux"
+      "forAllLevels": "Pour TOUS et tous les niveaux",
+      "checkRates": "Consulter les tarifs"
     },
     "professional": "Une structure professionnelle organisée par Patrick",
     "coach": {
       "name": "Patrick Noben",
       "title": "Entraîneur Belge",
-      "certification": "Classé B-15 depuis 20 ans"
+      "certification": "Classé B-15 depuis 20 ans",
+      "quote": "Chaque joueur a un grand potentiel. Mon travail est de le révéler grâce à un coaching personnalisé qui rend le jeu à la fois stimulant et agréable."
     },
     "facility": {
       "title": "1 DOMAINE EXTRAORDINAIRE",

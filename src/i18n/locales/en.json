@@ -20,7 +20,7 @@
     "welcome": "WELCOME to \"Tennis Academy Marrakech\"...",
     "subtitle": "COS-ONE Club, route de Targa",
     "tagline": "\"The passion for tennis, a school of life!\"",
-    "whatWeOffer": "What TeAM offers:",
+    "whatWeOffer": "What TeAM offers",
     "children": "Children",
     "adults": "Adults",
     "seniors": "Seniors",
@@ -32,13 +32,15 @@
       "rental": "Rent a tennis court",
       "stringing": "String your racket",
       "annualOrOccasional": "Annual or occasional",
-      "forAllLevels": "For ALL and all levels"
+      "forAllLevels": "For ALL and all levels",
+      "checkRates": "Check the rates"
     },
     "professional": "A professional structure organized by Patrick",
     "coach": {
       "name": "Patrick Noben",
       "title": "Belgian Coach",
-      "certification": "Class B-15 for 20 years"
+      "certification": "Class B-15 for 20 years",
+      "quote": "Every player has great potential. My job is to unlock it through personalized coaching that makes the game both challenging and enjoyable."
     },
     "facility": {
       "title": "AN EXTRAORDINARY DOMAIN",

@@ -110,36 +110,6 @@ export function Contact() {
       <Hero title={t('contact.title')} />
 
       <ContentBlock>
-        {/* About Us Content */}
-        <div className="mb-12">
-          <div className="prose prose-lg max-w-none">
-            <Card className="mb-8 max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto border-2 border-primary/20 shadow-lg overflow-hidden">
-              <CardHeader className="bg-primary/5 py-4">
-                <CardTitle className="text-2xl md:text-3xl lg:text-4xl text-primary">{t('home.coach.name')}</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-4 md:pt-5">
-                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center">
-                  <div className="w-full md:w-48 lg:w-56 xl:w-64 flex-shrink-0">
-                    <img
-                      src={patrickImage}
-                      alt={t('home.coach.name')}
-                      className="w-full h-auto rounded-lg object-cover shadow-md max-h-64 md:max-h-72 lg:max-h-80"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-foreground mb-2 font-medium text-base md:text-lg lg:text-xl">{t('home.coach.title')}</p>
-                    <p className="text-sm md:text-base text-muted-foreground">{t('home.coach.certification')}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="space-y-4">
-              <p className="text-foreground">{t('home.professional')}</p>
-              <p className="text-muted-foreground">{t('home.facility.description')}</p>
-            </div>
-          </div>
-        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
@@ -254,6 +224,40 @@ export function Contact() {
               </form>
             </CardContent>
           </Card>
+        </div>
+      </ContentBlock>
+
+      <ContentBlock variant="muted" className="py-4 md:py-6 lg:py-8">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
+          <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md overflow-hidden">
+            <div className="flex flex-col md:flex-row">
+              {/* Image Section */}
+              <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
+                <img
+                  src={patrickImage}
+                  alt={t('home.coach.name')}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              
+              {/* Content Section */}
+              <div className="flex-1 p-4 md:p-6 lg:p-8 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
+                  <p className="text-sm md:text-base font-semibold text-foreground mb-1">{t('home.coach.title')}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
+                  
+                  {/* Quote */}
+                  <div className="border-l-4 border-primary/30 pl-4 md:pl-5">
+                    <p className="text-sm md:text-base lg:text-lg text-foreground italic leading-relaxed">
+                      "{t('home.coach.quote')}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </ContentBlock>
     </>

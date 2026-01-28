@@ -32,7 +32,11 @@ function LanguageRouter() {
 
   useEffect(() => {
     const lang = getLanguageFromPath(location.pathname)
-    i18n.changeLanguage(lang)
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang).catch((err) => {
+        console.error('Error changing language:', err)
+      })
+    }
   }, [location.pathname, i18n])
 
   return null

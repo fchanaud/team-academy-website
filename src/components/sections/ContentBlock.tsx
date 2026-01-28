@@ -5,13 +5,15 @@ interface ContentBlockProps {
   children: ReactNode
   className?: string
   variant?: 'default' | 'muted'
+  id?: string
 }
 
-export function ContentBlock({ children, className, variant = 'default' }: ContentBlockProps) {
+export function ContentBlock({ children, className, variant = 'default', id }: ContentBlockProps) {
   return (
     <section
+      id={id}
       className={cn(
-        'py-12 md:py-16 lg:py-20',
+        'py-6 md:py-8 lg:py-10',
         variant === 'muted' && 'bg-muted/50',
         className
       )}

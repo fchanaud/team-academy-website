@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
-import { useLocation } from 'react-router-dom'
-import { getLanguageFromPath } from '@/lib/utils'
+import { useLocation, Link } from 'react-router-dom'
+import { getLanguageFromPath, addLanguagePrefix } from '@/lib/utils'
 import { Hero } from '@/components/sections/Hero'
 import { ContentBlock } from '@/components/sections/ContentBlock'
-import { CardGrid } from '@/components/sections/CardGrid'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ArrowRight } from 'lucide-react'
 import patrickImage from '../public/images/home/patrick.jpg'
+import heroImage from '../public/images/home/uepsSEiv1v5F6YPL.jpg'
 
 export function Home() {
   const { t } = useTranslation()
@@ -58,15 +59,17 @@ export function Home() {
         title={t('home.welcome')}
         subtitle={t('home.subtitle')}
         description={t('home.tagline')}
+        image={heroImage}
+        imageAlt="Tennis Academy Marrakech"
       />
 
-      <ContentBlock>
-        <div className="text-center mb-12">
+      <ContentBlock id="next-section">
+        <div className="text-center mb-6 md:mb-8">
           <div className="inline-block mb-4">
             <div className="h-1 w-16 bg-primary mx-auto"></div>
           </div>
-          <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">{t('home.whatWeOffer')}</h2>
-          <div className="flex flex-wrap justify-center gap-3 text-sm mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4 md:mb-6 text-foreground">{t('home.whatWeOffer')}</h2>
+          <div className="flex flex-wrap justify-center gap-3 text-sm mb-6">
             <span className="px-4 py-1.5 bg-accent text-accent-foreground rounded-full font-medium shadow-sm">{t('home.children')}</span>
             <span className="px-4 py-1.5 bg-accent-green text-accent-green-foreground rounded-full font-medium shadow-sm">{t('home.adults')}</span>
             <span className="px-4 py-1.5 bg-accent-blue text-accent-blue-foreground rounded-full font-medium shadow-sm">{t('home.seniors')}</span>
@@ -78,94 +81,143 @@ export function Home() {
           <p className="mt-1 font-medium">{t('home.services.forAllLevels')}</p>
         </div>
 
-        <CardGrid
-          cards={[
-            {
-              title: t('home.services.lessons'),
-              description: t('home.services.title'),
-            },
-            {
-              title: t('home.services.camps'),
-              description: t('home.services.title'),
-            },
-            {
-              title: t('home.services.kidsAfternoon'),
-              description: t('home.services.title'),
-            },
-            {
-              title: t('home.services.rental'),
-            },
-            {
-              title: t('home.services.stringing'),
-            },
-          ]}
-        />
-      </ContentBlock>
-
-      <ContentBlock variant="muted">
-        <div className="mb-8">
-          <p className="text-lg mb-6 text-foreground font-medium text-center">{t('home.professional')}</p>
-          <Card className="max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto border-2 border-primary/20 shadow-lg overflow-hidden">
-            <CardHeader className="bg-primary/5 py-4">
-              <CardTitle className="text-2xl md:text-3xl lg:text-4xl text-primary">{t('home.coach.name')}</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4 md:pt-5">
-              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center">
-                <div className="w-full md:w-48 lg:w-56 xl:w-64 flex-shrink-0">
-                  <img
-                    src={patrickImage}
-                    alt={t('home.coach.name')}
-                    className="w-full h-auto rounded-lg object-cover shadow-md max-h-64 md:max-h-72 lg:max-h-80"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-foreground mb-2 font-medium text-base md:text-lg lg:text-xl">{t('home.coach.title')}</p>
-                  <p className="text-sm md:text-base text-muted-foreground">{t('home.coach.certification')}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </ContentBlock>
-
-      <ContentBlock>
-        <div className="text-center mb-8">
-          <div className="inline-block mb-4">
-            <div className="h-1 w-16 bg-secondary mx-auto"></div>
-          </div>
-          <h2 className="text-3xl font-heading font-bold mb-2 text-foreground">{t('home.facility.title')}</h2>
-          <p className="text-xl text-muted-foreground mb-6">{t('home.facility.subtitle')}</p>
-        </div>
-
-        <div className="mb-8">
-          <p className="text-lg mb-4">{t('home.facility.description')}</p>
-          <ul className="space-y-3 text-muted-foreground max-w-2xl mx-auto">
-            <li className="flex items-start">
-              <span className="text-primary mr-2 font-bold">•</span>
-              <span>{t('home.facility.features.airy')}</span>
+        {/* Services as bullet points */}
+        <div className="max-w-2xl mx-auto mb-6">
+          <ul className="space-y-4 text-left">
+            <li className="flex items-start gap-3">
+              <span className="text-primary text-xl font-bold mt-0.5">•</span>
+              <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.lessons')}</span>
             </li>
-            <li className="flex items-start">
-              <span className="text-secondary mr-2 font-bold">•</span>
-              <span>{t('home.facility.features.courts')}</span>
+            <li className="flex items-start gap-3">
+              <span className="text-secondary text-xl font-bold mt-0.5">•</span>
+              <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.camps')}</span>
             </li>
-            <li className="flex items-start">
-              <span className="text-tertiary mr-2 font-bold">•</span>
-              <span>{t('home.facility.features.basketball')}</span>
+            <li className="flex items-start gap-3">
+              <span className="text-tertiary text-xl font-bold mt-0.5">•</span>
+              <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.kidsAfternoon')}</span>
             </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-2 font-bold">•</span>
-              <span>{t('home.facility.features.parking')}</span>
+            <li className="flex items-start gap-3">
+              <span className="text-primary text-xl font-bold mt-0.5">•</span>
+              <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.rental')}</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-secondary text-xl font-bold mt-0.5">•</span>
+              <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.stringing')}</span>
             </li>
           </ul>
         </div>
 
+        {/* Link to check rates */}
         <div className="text-center">
-          <a
-            href="tel:00212653890162"
-            className="inline-flex items-center space-x-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-all shadow-sm hover:shadow-md whitespace-nowrap"
+          <Link
+            to={addLanguagePrefix('/programs', lang)}
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base md:text-lg transition-colors group"
           >
-            <span>Whatsapp: +212 653 890 162</span>
-          </a>
+            <span>{t('home.services.checkRates')}</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </ContentBlock>
+
+      {/* Red separator line */}
+      <div className="flex justify-center py-2 md:py-3">
+        <div className="h-1 w-16 bg-primary"></div>
+      </div>
+
+      <ContentBlock variant="muted" className="py-4 md:py-6 lg:py-8">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
+          <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md overflow-hidden">
+            <div className="flex flex-col md:flex-row">
+              {/* Image Section */}
+              <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
+                <img
+                  src={patrickImage}
+                  alt={t('home.coach.name')}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              
+              {/* Content Section */}
+              <div className="flex-1 p-4 md:p-6 lg:p-8 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
+                  <p className="text-sm md:text-base font-semibold text-foreground mb-1">{t('home.coach.title')}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
+                  
+                  {/* Quote */}
+                  <div className="border-l-4 border-primary/30 pl-4 md:pl-5">
+                    <p className="text-sm md:text-base lg:text-lg text-foreground italic leading-relaxed">
+                      "{t('home.coach.quote')}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ContentBlock>
+
+      <ContentBlock>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left Column - Content */}
+          <div className="order-1">
+            <div className="text-center lg:text-left mb-4 md:mb-5">
+              <div className="inline-block mb-3 md:mb-4">
+                <div className="h-1 w-16 bg-secondary mx-auto lg:mx-0"></div>
+              </div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-3 text-foreground">{t('home.facility.title')}</h2>
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 md:mb-6">{t('home.facility.subtitle')}</p>
+            </div>
+
+            <div className="mb-4 md:mb-5">
+              <p className="text-lg mb-4">{t('home.facility.description')}</p>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start">
+                  <span className="text-primary mr-2 font-bold">•</span>
+                  <span>{t('home.facility.features.airy')}</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-secondary mr-2 font-bold">•</span>
+                  <span>{t('home.facility.features.courts')}</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-tertiary mr-2 font-bold">•</span>
+                  <span>{t('home.facility.features.basketball')}</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-primary mr-2 font-bold">•</span>
+                  <span>{t('home.facility.features.parking')}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="text-center lg:text-left">
+              <a
+                href="tel:00212653890162"
+                className="inline-flex items-center space-x-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-all shadow-sm hover:shadow-md whitespace-nowrap"
+              >
+                <span>Whatsapp: +212 653 890 162</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column - Google Map */}
+          <div className="order-2">
+            <div className="relative w-full aspect-video lg:aspect-square rounded-lg overflow-hidden shadow-lg border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.5!2d-7.981234567890!3d31.628901234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafeeeb6677a635%3A0x2936795494e33117!2sTennis%20Academy%20Marrakech!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full"
+                title="Tennis Academy Marrakech Location"
+              />
+            </div>
+          </div>
         </div>
       </ContentBlock>
     </>

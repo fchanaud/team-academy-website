@@ -27,7 +27,7 @@ export function About() {
 
       <ContentBlock>
         <div className="prose prose-lg max-w-none">
-          <Card className="mb-8 border-2 border-primary/20 shadow-lg">
+          <Card className="mb-6 border-2 border-primary/20 shadow-lg">
             <CardHeader className="bg-primary/5">
               <CardTitle className="text-2xl text-primary">{t('home.coach.name')}</CardTitle>
             </CardHeader>

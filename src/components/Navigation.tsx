@@ -55,9 +55,22 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b-2 border-primary/20 shadow-sm">
-      <div className="max-w-[95%] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[95%] lg:max-w-[1200px] xl:max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
-          <Link to={getLocalizedPath('/')} className="flex items-center flex-shrink-0 mr-4 hover:opacity-80 transition-opacity">
+          <Link 
+            to={getLocalizedPath('/')} 
+            onClick={(e) => {
+              // If already on home page, scroll to top; otherwise navigate normally
+              const homePath = getLocalizedPath('/')
+              if (location.pathname === homePath || 
+                  location.pathname.endsWith('/en') ||
+                  location.pathname.endsWith('/fr')) {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
+            className="flex items-center flex-shrink-0 mr-4 hover:opacity-80 transition-opacity"
+          >
             <img
               src={logoImage}
               alt="Tennis Academy Marrakech"
