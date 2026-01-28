@@ -23,7 +23,7 @@ export function NotFound() {
         description="The page you're looking for doesn't exist."
       />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="text-center">
           <Button asChild>
             <Link to={addLanguagePrefix('/', lang)}>Go Home</Link>

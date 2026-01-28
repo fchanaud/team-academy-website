@@ -18,6 +18,7 @@ import { KidsAfternoon } from './pages/KidsAfternoon'
 import { IndividualLessons } from './pages/IndividualLessons'
 import { PlayAtClub } from './pages/PlayAtClub'
 import { Camps } from './pages/Camps'
+import { About } from './pages/About'
 import { Terms } from './pages/Terms'
 import { Gallery } from './pages/Gallery'
 import { Contact } from './pages/Contact'
@@ -47,8 +48,8 @@ function AppRoutes() {
 
   return (
     <Routes>
-      {/* Redirect root to /en */}
-      <Route path="/" element={<Navigate to="/en" replace />} />
+      {/* Redirect root to /fr */}
+      <Route path="/" element={<Navigate to="/fr" replace />} />
 
       {/* English routes */}
       <Route path="/en" element={<Home />} />
@@ -59,6 +60,7 @@ function AppRoutes() {
       <Route path="/en/programs/individual-lessons" element={<IndividualLessons />} />
       <Route path="/en/programs/play-at-club" element={<PlayAtClub />} />
       <Route path="/en/programs/camps" element={<Camps />} />
+      <Route path="/en/about" element={<About />} />
       <Route path="/en/terms" element={<Terms />} />
       <Route path="/en/gallery" element={<Gallery />} />
       <Route path="/en/contact" element={<Contact />} />
@@ -72,6 +74,7 @@ function AppRoutes() {
       <Route path="/fr/programs/individual-lessons" element={<IndividualLessons />} />
       <Route path="/fr/programs/play-at-club" element={<PlayAtClub />} />
       <Route path="/fr/programs/camps" element={<Camps />} />
+      <Route path="/fr/about" element={<About />} />
       <Route path="/fr/terms" element={<Terms />} />
       <Route path="/fr/gallery" element={<Gallery />} />
       <Route path="/fr/contact" element={<Contact />} />

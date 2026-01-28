@@ -24,7 +24,7 @@ export function MiniTennis() {
 
       <Hero title={t('nav.programsSubmenu.miniTennis')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground">{t('programs.miniTennis.content')}</p>
         </div>

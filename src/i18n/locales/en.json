@@ -13,7 +13,7 @@
     "registrations": "REGISTRATIONS",
     "about": "ABOUT US",
     "terms": "TERMS AND CONDITIONS",
-    "gallery": "PHOTO GALLERY",
+    "gallery": "PHOTOS",
     "contact": "CONTACT"
   },
   "home": {
@@ -48,7 +48,7 @@
       "description": "This family club offers a pleasant and totally secure setting.",
       "features": {
         "airy": "An airy, flowered and shaded space.",
-        "courts": "3 clay tennis courts",
+        "courts": "2 clay tennis courts",
         "basketball": "1 basketball and mini-football court",
         "parking": "Easy parking"
       }
@@ -99,6 +99,67 @@
     "camps": {
       "description": "Local and International tennis camps at Tennis Academy Marrakech.",
       "content": "Join our intensive tennis camps, available both locally and for international participants. Our camps provide comprehensive training programs, combining technical instruction, physical conditioning, and match play. Perfect for players looking to improve their game during school breaks or holidays."
+    }
+  },
+  "terms": {
+    "information": {
+      "title": "Information",
+      "location": "Course location: Club COS-ONE, Targa road, 40000 Marrakech",
+      "description": "Group and individual tennis classes in \"cycle\".",
+      "schedule": "Classes are effective every week except during Autumn, Christmas, Winter and Spring holidays (school holidays of French schools in Morocco).",
+      "holidays": "With the exception of the holidays mentioned above, classes are given every day, even on public holidays of the various schools of Morocco."
+    },
+    "registration": {
+      "title": "Registration and payment methods",
+      "forms": "Only duly completed and signed registration forms will be considered. Full payment is required from this registration to validate and, at the latest, before the 1st course (access to the course will be reserved for students in payment order).",
+      "rates": "Rates are fixed. No discount will be given for a registration arriving after the first day of classes, nor for an early departure before the end of the cycle.",
+      "commitment": "The student commits himself for the whole cycle.",
+      "includes": "Prices include fees, balls, accessories and land rentals.",
+      "insurance": "The annual fee including insurance is due by any registered student.",
+      "payment": "The payment of the courses can be done either in cash, or by check in the name of Patrick Noben.",
+      "familyDiscount": "For members of a family living under the same roof, a reduction of 10% is granted on the 2nd registered and follow."
+    },
+    "absences": {
+      "title": "Absences and recovery",
+      "noRefund": "No refund will be made for missed courses or in case of withdrawal.",
+      "medicalAbsence": "A single absence per cycle, justified by a medical certificate, may be recovered depending on available places or a postponement on the next cycle.",
+      "notice": "In case of absence, we ask you to inform Patrick Noben (06 53 89 01 62) 48 hours in advance.",
+      "weather": "In case of bad weather, making the land impassable, TeAM will cancel the course in advance (by WhatsApp... contact details provided on the same registration form). In this case, the course can be retrieved according to the available places or postponed to the next cycle."
+    },
+    "various": {
+      "title": "Various",
+      "imageRights": "The undersigned agrees to the right to the image of the student, taken within the walls of the club by TeAM, for its website, its FaceBook page or any video posted on the internet, and for an indefinite period.",
+      "equipment": "All students will wear tennis shoes with smooth soles (clay courts), appropriate sports clothing and bring their personal racket (racket loan will not be granted after the 2nd week of classes)."
+    },
+    "remarks": {
+      "title": "Remarks",
+      "content": "Each lesson will be given on a clean and friendly ground. Therefore, the class time includes the passage of the net (5 min) and the necessary watering (5 min)."
+    }
+  },
+  "about": {
+    "intro": {
+      "title": "Tennis Academy Marrakech is",
+      "description": "Tennis Academy Marrakech (TeAM) is your tennis school and club in Marrakech! Located route de Targa, between the Victor Hugo and Majorelle schools.",
+      "welcome": "TeAM welcomes you (young and old, beginners, initiates or competitors) and offers a set of services and activities related to Tennis: Lessons, training, internships, tournaments and \"Kids Afternoon\"."
+    },
+    "school": {
+      "title": "A Professional Tennis School",
+      "description": "Tennis Academy Marrakech is a professional tennis school run and coached by a top Belgian professional: Patrick Noben.",
+      "approach": "This high-performance school combines the learning of the perfect technical gesture with the pleasure of the game and its development according to each individual.",
+      "location": "Located in a spacious and green setting, in the heart of Marrakech, it operates in a friendly and family atmosphere."
+    },
+    "courses": {
+      "title": "Our Courses",
+      "description": "TeAM offers group or individual lessons depending on age and level. Classes are given during the school year and internships are organized during school holidays.",
+      "tagline": "To learn, to learn, to improve, in the best conditions, in the heart of Marrakech."
+    },
+    "coaches": {
+      "title": "Our Coaches",
+      "description": "Patrick Noben is accompanied by his coaches for the courses and training of the youngest and the youngest.",
+      "formulas": "It offers formulas accessible to all, in small groups of students, as well as internships in a club atmosphere during the school holidays.",
+      "segmentation": "Our courses, group or individual are segmented by age and level",
+      "organization": "The coaches organize and animate sessions for different types of public with a view to leisure or competition. They supervise a group and accompany each player in his progress.",
+      "planning": "He plans his sessions according to the fixed objectives and the deadlines (championships, cups) Essential task, he must take care of the quality of the practitioners. To do this, he must develop group-level exercises, analyze and correct gestures. Note, his schedule is special. Indeed, he works when his audience is available. He also accompanies the players on the competitions to coach them."
     }
   },
   "meta": {

@@ -57,6 +57,7 @@ export function Home() {
       <Hero
         title={t('home.welcome')}
         subtitle={t('home.subtitle')}
+        subtitleLink="https://www.google.com/maps/search/?api=1&query=Club+du+COS-ONE,+route+de+Targa,+Marrakech"
         description={t('home.tagline')}
         image={heroImage}
         imageAlt="Tennis Academy Marrakech"

@@ -29,6 +29,7 @@ export function Navigation() {
 
   const navLinks = [
     { key: 'home', path: '/' },
+    { key: 'about', path: '/about' },
     { key: 'terms', path: '/terms' },
     { key: 'gallery', path: '/gallery' },
     { key: 'contact', path: '/contact' },

@@ -7,9 +7,10 @@ import frTranslations from './locales/fr.json'
 const getInitialLanguage = (): 'en' | 'fr' => {
   if (typeof window !== 'undefined') {
     const pathname = window.location.pathname
+    if (pathname.startsWith('/en')) return 'en'
     if (pathname.startsWith('/fr')) return 'fr'
   }
-  return 'en'
+  return 'fr' // Default to French
 }
 
 i18n
@@ -24,7 +25,7 @@ i18n
       },
     },
     lng: getInitialLanguage(),
-    fallbackLng: 'en',
+    fallbackLng: 'fr',
     interpolation: {
       escapeValue: false,
     },

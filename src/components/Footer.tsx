@@ -16,7 +16,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-slate-900 text-white mt-20 relative">
+    <footer className="bg-slate-900 text-white mt-10 relative">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-tertiary"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -28,10 +28,15 @@ export function Footer() {
             <p className="text-sm text-slate-300 mb-4">
               {t('home.tagline')}
             </p>
-            <p className="text-sm text-slate-300">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Club+du+COS-ONE,+route+de+Targa,+Marrakech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-slate-300 hover:text-primary transition-colors inline-block"
+            >
               COS-ONE Club, route de Targa<br />
               Marrakech, Morocco
-            </p>
+            </a>
           </div>
 
           {/* Quick Links */}

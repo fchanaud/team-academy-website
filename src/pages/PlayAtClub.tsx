@@ -24,7 +24,7 @@ export function PlayAtClub() {
 
       <Hero title={t('nav.programsSubmenu.playAtClub')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground">{t('programs.playAtClub.content')}</p>
         </div>

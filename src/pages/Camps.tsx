@@ -24,7 +24,7 @@ export function Camps() {
 
       <Hero title={t('nav.programsSubmenu.camps')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground">{t('programs.camps.content')}</p>
         </div>

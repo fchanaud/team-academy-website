@@ -13,7 +13,7 @@
     "registrations": "INSCRIPTIONS",
     "about": "QUI SOMMES NOUS",
     "terms": "CONDITIONS GENERALES",
-    "gallery": "GALERIE PHOTOS",
+    "gallery": "PHOTOS",
     "contact": "CONTACT"
   },
   "home": {
@@ -48,7 +48,7 @@
       "description": "Ce club familial offre un cadre agréable et totalement sécurisé.",
       "features": {
         "airy": "Un espace aéré, fleuri et ombragé.",
-        "courts": "3 terrains de tennis en terre battue",
+        "courts": "2 terrains de tennis en terre battue",
         "basketball": "1 terrain de basket et mini-foot",
         "parking": "Parking facile"
       }
@@ -56,7 +56,7 @@
   },
   "contact": {
     "title": "Contactez-nous",
-    "phone": "Téléphone",
+    "phone": "Whatsapp",
     "call": "Appeler",
     "address": "Adresse",
     "location": "Club du COS-ONE, route de Targa, Marrakech",
@@ -99,6 +99,67 @@
     "camps": {
       "description": "Stages de tennis locaux et internationaux à Tennis Academy Marrakech.",
       "content": "Rejoignez nos stages de tennis intensifs, disponibles à la fois localement et pour les participants internationaux. Nos stages offrent des programmes d'entraînement complets, combinant instruction technique, conditionnement physique et matchs. Parfait pour les joueurs souhaitant améliorer leur jeu pendant les vacances scolaires ou les congés."
+    }
+  },
+  "terms": {
+    "information": {
+      "title": "Informations",
+      "location": "Lieu des cours : Club COS-ONE, route de Targa.",
+      "description": "Cours de tennis collectifs et individuels en \"cycle\".",
+      "schedule": "Les cours sont effectifs toutes les semaines exceptées durant les vacances d'Automne, de Noël, d'Hiver et de Printemps (vacances scolaires des établissements français du Maroc).",
+      "holidays": "A l'exception des vacances citées ci-avant, les cours sont donnés tous les jours même les jours fériés des divers établissements scolaires du Maroc."
+    },
+    "registration": {
+      "title": "Inscriptions et modalités de paiement",
+      "forms": "Seuls les formulaires d'inscription dûment complétés et signés seront pris en considération. Le paiement intégral vous est demandé dès cette inscription pour la valider et, au plus tard, avant le 1er cours (l'accès au cours sera réservé aux élèves en ordre de paiement).",
+      "rates": "Les tarifs sont forfaitaires. Aucune réduction ne sera accordée pour une inscription arrivant après le premier jour des cours, ni pour un départ anticipé avant la fin du cycle.",
+      "commitment": "L'élève s'engage pour l'entièreté du cycle.",
+      "includes": "Les prix comprennent les honoraires, balles, accessoires et la location des terrains.",
+      "insurance": "La cotisation annuelle comprenant l'assurance est due par tout élève inscrit.",
+      "payment": "Le paiement des cours peut être effectué soit en espèces, soit par chèque bancaire marocain au nom de Patrick Noben.",
+      "familyDiscount": "Pour les membres d'une famille vivant sous le même toit, une réduction de 10% est octroyée sur le 2ème inscrit et les suivants."
+    },
+    "absences": {
+      "title": "Absences et récupération",
+      "noRefund": "Aucun remboursement ne sera effectué pour des cours manqués ou en cas de désistement.",
+      "medicalAbsence": "Une seule absence par cycle, justifiée par un certificat médical, pourra faire l'objet d'une récupération en fonction des places disponibles ou d'un report sur le cycle suivant.",
+      "notice": "En cas d'absence, nous vous demandons de prévenir Patrick Noben (06 53 89 01 62) 48 h à l'avance.",
+      "weather": "En cas d'intempéries, rendant les terrains impraticables, TeAM annulera anticipativement le cours (par WhatsApp... coordonnées fournies sur ce même formulaire d'inscription). Dans ce cas, le cours pourra être récupéré en fonction des places disponibles dans un autre groupe similaire (en fonction du niveau et de l'âge) ou reporté sur le cycle suivant."
+    },
+    "various": {
+      "title": "Divers",
+      "imageRights": "Le soussigné marque son accord au droit à l'image de l'élève, prise dans l'enceinte du club par TeAM, pour son site internet, sa page FaceBook ou toute vidéo mise en ligne sur internet, et ce pour une durée indéterminée.",
+      "equipment": "Tout élève devra porter des chaussures de tennis à semelles lisses (terrains en brique pilée), une tenue de sport appropriée et se munira de sa raquette personnelle (le prêt de raquette ne sera plus octroyé dès la 2ème semaine de cours)."
+    },
+    "remarks": {
+      "title": "Remarques",
+      "content": "Chaque cours sera donné sur un terrain propre et avenant. De ce fait, l'heure de cours inclus le passage du filet (5 min) et l'arrosage nécessaire (5 min)."
+    }
+  },
+  "about": {
+    "intro": {
+      "title": "Tennis Academy Marrakech est",
+      "description": "Tennis Academy Marrakech (TeAM) est votre école et votre club de tennis à Marrakech! Situé route de Targa.",
+      "welcome": "TeAM vous accueille (petits et grands, débutants, initiés ou compétiteurs) et propose un ensemble de services et d'activités liés au Tennis: Cours, entraînements, stages, tournois et \"Kids Afternoon\"."
+    },
+    "school": {
+      "title": "Une École de Tennis Professionnelle",
+      "description": "Tennis Academy Marrakech est une école de tennis professionnelle tenue et coachée par un professionnel Belge de haut niveau: Patrick Noben.",
+      "approach": "Cette école performante associe l'apprentissage du geste technique parfait au plaisir du jeu et de son évolution en fonction de chacun.",
+      "location": "Située dans un cadre spacieux et verdoyant, en plein cœur de Marrakech, elle évolue dans une ambiance conviviale et familiale."
+    },
+    "courses": {
+      "title": "Nos Cours",
+      "description": "TeAM propose des cours collectifs ou individuels selon l'âge et le niveau. Les cours sont donnés pendant l'année scolaire et des stages sont organisés pendant les congés scolaires.",
+      "tagline": "S'initier, apprendre, se perfectionner, dans les meilleures conditions, au cœur de Marrakech."
+    },
+    "coaches": {
+      "title": "Nos Coachs",
+      "description": "Patrick Noben est accompagné de ses coachs pour les cours et entraînements des plus jeunes et moins jeunes.",
+      "formulas": "Il propose des formules accessibles à tous, par petits groupes d'élèves, ainsi que des stages dans une ambiance club durant les vacances scolaires.",
+      "segmentation": "Nos cours, collectifs ou individuels sont segmentés par âge et par niveau",
+      "organization": "Les coachs organisent et animent des séances pour différents types de publics dans un objectif de loisirs ou de compétition. Ils encadrent un groupe et accompagne chacun des joueurs ou joueuses dans sa progression.",
+      "planning": "Il planifie ses séances en fonction des objectifs fixés et des échéances (championnats, coupes) Tâche essentielle, il doit veiller à la qualité des pratiquants. Pour cela, il doit mettre au point des exercices adaptés au niveau du groupe, analyser et corriger les gestes. A noter, son emploi du temps est particulier. En effet, il travaille lorsque son public est disponible. Il accompagne aussi les joueurs et joueuses sur les compétitions pour les coacher."
     }
   },
   "meta": {

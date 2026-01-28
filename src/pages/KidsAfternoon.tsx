@@ -24,7 +24,7 @@ export function KidsAfternoon() {
 
       <Hero title={t('nav.programsSubmenu.kidsAfternoon')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground">{t('programs.kidsAfternoon.content')}</p>
         </div>

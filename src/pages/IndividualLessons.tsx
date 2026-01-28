@@ -24,7 +24,7 @@ export function IndividualLessons() {
 
       <Hero title={t('nav.programsSubmenu.individualLessons')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-foreground">{t('programs.individualLessons.content')}</p>
         </div>

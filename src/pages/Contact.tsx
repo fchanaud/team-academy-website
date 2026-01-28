@@ -109,7 +109,7 @@ export function Contact() {
 
       <Hero title={t('contact.title')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
@@ -134,7 +134,14 @@ export function Contact() {
                   <MapPin className="mt-1 text-secondary" size={20} />
                   <div>
                     <p className="font-medium">{t('contact.address')}</p>
-                    <p className="text-muted-foreground">{t('contact.location')}</p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Club+du+COS-ONE,+route+de+Targa,+Marrakech"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-secondary hover:underline transition-colors"
+                    >
+                      {t('contact.location')}
+                    </a>
                   </div>
                 </div>
               </CardContent>

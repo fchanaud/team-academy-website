@@ -45,7 +45,7 @@ export function Testimonials() {
 
       <Hero title={t('nav.testimonials')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => {
             const colorIndex = index % 3

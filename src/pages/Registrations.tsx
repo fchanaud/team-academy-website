@@ -27,7 +27,7 @@ export function Registrations() {
 
       <Hero title={t('nav.registrations')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <Card className="max-w-2xl mx-auto border-2 border-secondary/20 shadow-lg">
           <CardHeader className="bg-accent-green/30">
             <CardTitle className="text-secondary">{t('nav.registrations')}</CardTitle>

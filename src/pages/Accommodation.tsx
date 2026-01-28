@@ -24,7 +24,7 @@ export function Accommodation() {
 
       <Hero title={t('nav.accommodation')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-muted-foreground">
             Information about accommodation options will be available here.

@@ -55,7 +55,7 @@ export function Gallery() {
 
       <Hero title={t('nav.gallery')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         {/* Mobile Carousel */}
         <div className="md:hidden mb-6">
           <ImageCarousel images={galleryImages} autoPlayInterval={4000} />

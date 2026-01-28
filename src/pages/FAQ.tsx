@@ -65,7 +65,7 @@ export function FAQ() {
 
       <Hero title={t('nav.faq')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const colorIndex = index % 3

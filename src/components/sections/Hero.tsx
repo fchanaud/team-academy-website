@@ -3,12 +3,13 @@ import { ChevronDown } from 'lucide-react'
 interface HeroProps {
   title: string
   subtitle?: string
+  subtitleLink?: string
   description?: string
   image?: string
   imageAlt?: string
 }
 
-export function Hero({ title, subtitle, description, image, imageAlt }: HeroProps) {
+export function Hero({ title, subtitle, subtitleLink, description, image, imageAlt }: HeroProps) {
   const scrollToNext = () => {
     // Try to find the next section by id first, then fallback to next sibling
     const nextSection = document.getElementById('next-section') || 
@@ -54,7 +55,18 @@ export function Hero({ title, subtitle, description, image, imageAlt }: HeroProp
         </h1>
         {subtitle && (
           <h2 className={`text-xl md:text-2xl font-heading mb-4 md:mb-5 fade-in ${image ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]' : 'text-foreground'}`}>
-            {subtitle}
+            {subtitleLink ? (
+              <a
+                href={subtitleLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline transition-all"
+              >
+                {subtitle}
+              </a>
+            ) : (
+              subtitle
+            )}
           </h2>
         )}
         {description && (

@@ -6,14 +6,16 @@ interface ContentBlockProps {
   className?: string
   variant?: 'default' | 'muted'
   id?: string
+  reduceBottomPadding?: boolean
 }
 
-export function ContentBlock({ children, className, variant = 'default', id }: ContentBlockProps) {
+export function ContentBlock({ children, className, variant = 'default', id, reduceBottomPadding = false }: ContentBlockProps) {
   return (
     <section
       id={id}
       className={cn(
-        'py-6 md:py-8 lg:py-10',
+        'pt-6 md:pt-8 lg:pt-10',
+        reduceBottomPadding ? 'pb-4' : 'pb-6 md:pb-8 lg:pb-10',
         variant === 'muted' && 'bg-muted/50',
         className
       )}

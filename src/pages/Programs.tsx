@@ -25,7 +25,7 @@ export function Programs() {
 
       <Hero title={t('nav.programs')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="text-center mb-6">
           <div className="inline-block mb-4">
             <div className="flex items-center justify-center gap-2">

@@ -24,7 +24,7 @@ export function Marrakech() {
 
       <Hero title={t('nav.marrakech')} />
 
-      <ContentBlock>
+      <ContentBlock reduceBottomPadding>
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-muted-foreground">
             {t('home.facility.subtitle')}
