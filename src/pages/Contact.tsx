@@ -38,19 +38,7 @@ export function Contact() {
           .string()
           .min(1, t('contact.form.validation.emailInvalid'))
           .email(t('contact.form.validation.emailInvalid')),
-        whatsapp: z
-          .string()
-          .optional()
-          .refine(
-            (val) => {
-              if (!val || val.trim() === '') return true
-              // Remove spaces, dashes, parentheses for validation
-              const cleaned = val.replace(/[\s\-\(\)]/g, '')
-              // Check if it starts with + and has digits, or just digits
-              return /^\+?[1-9]\d{8,14}$/.test(cleaned)
-            },
-            t('contact.form.validation.whatsappInvalid')
-          ),
+        whatsapp: z.string().optional(),
         message: z.string().min(10, t('contact.form.validation.messageMin')),
         botcheck: z.boolean().optional(),
       }),
@@ -69,14 +57,19 @@ export function Contact() {
     mode: 'onBlur',
   })
 
-  // Web3Forms Access Key
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '8bea463e-5b26-4109-a0b5-3c565acd5a03'
+  // Web3Forms Access Key - must be set in .env file
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+  
+  if (!accessKey) {
+    console.error('VITE_WEB3FORMS_ACCESS_KEY is not set in environment variables')
+  }
 
   const { submit: onSubmit } = useWeb3Forms({
     access_key: accessKey,
     settings: {
       from_name: 'Tennis Academy Marrakech Contact Form',
       subject: 'New Contact Message from Tennis Academy Marrakech Website',
+      to: 'tennisacademymarrakech@gmail.com',
     },
     onSuccess: () => {
       setSubmitStatus('success')
