@@ -28,7 +28,7 @@ export function Hero({ title, subtitle, subtitleLink, description, image, imageA
   }
 
   return (
-    <section className={`relative ${image ? 'min-h-[55vh] md:min-h-[60vh] lg:min-h-[65vh]' : 'pt-12 pb-8 md:pt-16 md:pb-12'} flex items-center justify-center overflow-hidden`}>
+    <section className={`relative ${image ? 'min-h-[55vh] md:min-h-[60vh] lg:min-h-[65vh]' : 'pt-12 pb-4 md:pt-16 md:pb-6'} flex items-center justify-center overflow-hidden`}>
       {image && (
         <>
           <div className="absolute inset-0 z-0 overflow-hidden">
@@ -50,11 +50,11 @@ export function Hero({ title, subtitle, subtitleLink, description, image, imageA
             <div className="h-1 w-12 bg-tertiary rounded-full"></div>
           </div>
         </div>
-        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-3 md:mb-4 fade-in ${image ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]' : 'text-primary'}`}>
+        <h1 className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 md:mb-4 fade-in ${image ? 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]' : 'text-primary'}`}>
           {title}
         </h1>
         {subtitle && (
-          <h2 className={`text-xl md:text-2xl font-heading mb-4 md:mb-5 fade-in ${image ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]' : 'text-foreground'}`}>
+          <h2 className={`text-lg md:text-xl font-heading mb-4 md:mb-5 fade-in ${image ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]' : 'text-foreground'}`}>
             {subtitleLink ? (
               <a
                 href={subtitleLink}
@@ -70,7 +70,7 @@ export function Hero({ title, subtitle, subtitleLink, description, image, imageA
           </h2>
         )}
         {description && (
-          <p className={`text-lg max-w-2xl mx-auto fade-in ${image ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : 'text-muted-foreground'}`}>
+          <p className={`text-base md:text-lg max-w-2xl mx-auto fade-in ${image ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : 'text-muted-foreground'}`}>
             {description}
           </p>
         )}

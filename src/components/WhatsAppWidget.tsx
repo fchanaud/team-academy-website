@@ -2,8 +2,7 @@ import { MessageCircle } from 'lucide-react'
 
 export function WhatsAppWidget() {
   const phoneNumber = '00212653890162'
-  const message = encodeURIComponent('Hello, I would like to know more about Tennis Academy Marrakech.')
-  const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${message}`
+  const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`
 
   return (
     <a

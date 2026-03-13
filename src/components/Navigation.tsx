@@ -2,14 +2,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getLanguageFromPath, removeLanguagePrefix, addLanguagePrefix } from '@/lib/utils'
 import { Button } from './ui/button'
-import { Menu, X, ChevronDown } from 'lucide-react'
-import { useState } from 'react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from './ui/dropdown-menu'
+import { Menu, X } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
 // Import logo
 import logoImage from '../public/images/home/logo.png'
 
@@ -19,6 +13,7 @@ export function Navigation() {
   const navigate = useNavigate()
   const currentLang = getLanguageFromPath(location.pathname)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'en' ? 'fr' : 'en'
@@ -29,6 +24,7 @@ export function Navigation() {
 
   const navLinks = [
     { key: 'home', path: '/' },
+    { key: 'programs', path: '/programs' },
     { key: 'about', path: '/about' },
     { key: 'terms', path: '/terms' },
     { key: 'gallery', path: '/gallery' },
@@ -39,23 +35,41 @@ export function Navigation() {
   const whatsappNumberRaw = '212653890162'
   const whatsappLink = `https://wa.me/${whatsappNumberRaw}`
 
-  const programSubmenuItems = [
-    { key: 'babyTennis', path: '/programs/baby-tennis' },
-    { key: 'miniTennis', path: '/programs/mini-tennis' },
-    { key: 'kidsAfternoon', path: '/programs/kids-afternoon' },
-    { key: 'individualLessons', path: '/programs/individual-lessons' },
-    { key: 'playAtClub', path: '/programs/play-at-club' },
-    { key: 'camps', path: '/programs/camps' },
-  ]
-
   const getLocalizedPath = (path: string) => {
     return addLanguagePrefix(path, currentLang)
   }
 
-  const isProgramsActive = location.pathname.includes('/programs')
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    // Close menu when route changes
+    const handleRouteChange = () => {
+      setMobileMenuOpen(false)
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      window.addEventListener('popstate', handleRouteChange)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      window.removeEventListener('popstate', handleRouteChange)
+    }
+  }, [mobileMenuOpen])
+
+  // Close menu when location changes
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [location.pathname])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b-2 border-primary/20 shadow-sm">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b-2 border-primary/20 shadow-sm">
       <div className="max-w-[95%] lg:max-w-[1200px] xl:max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
           <Link 
@@ -80,63 +94,24 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-5 xl:space-x-6 flex-1 justify-end">
-            <Link
-              to={getLocalizedPath('/')}
-              className={`text-xs lg:text-sm font-medium transition-colors relative group whitespace-nowrap ${
-                location.pathname === getLocalizedPath('/') || 
-                location.pathname.endsWith('/en') ||
-                location.pathname.endsWith('/fr')
-                  ? 'text-primary' 
-                  : 'text-foreground hover:text-primary'
-              }`}
-            >
-              {t('nav.home')}
-              {(location.pathname === getLocalizedPath('/') || 
-                location.pathname.endsWith('/en') ||
-                location.pathname.endsWith('/fr')) && (
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
-              )}
-            </Link>
-
-            {/* Programs Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  className={`text-xs lg:text-sm font-medium transition-colors relative group flex items-center gap-1 whitespace-nowrap ${
-                    isProgramsActive 
-                      ? 'text-primary' 
-                      : 'text-foreground hover:text-primary'
-                  }`}
-                >
-                  {t('nav.programs')}
-                  <ChevronDown size={14} className="mt-0.5" />
-                  {isProgramsActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
-                  )}
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
-                {programSubmenuItems.map((item) => (
-                  <DropdownMenuItem key={item.key} asChild>
-                    <Link
-                      to={getLocalizedPath(item.path)}
-                      className="cursor-pointer"
-                    >
-                      {t(`nav.programsSubmenu.${item.key}`)}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {navLinks.slice(1).map((link) => {
-              const isActive = location.pathname === getLocalizedPath(link.path)
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-5 flex-1 justify-end">
+            {navLinks.map((link) => {
+              let isActive = false
+              if (link.key === 'home') {
+                isActive = location.pathname === getLocalizedPath('/') || 
+                          location.pathname.endsWith('/en') ||
+                          location.pathname.endsWith('/fr')
+              } else if (link.key === 'programs') {
+                // Highlight if on /programs or any /programs/* subpage
+                isActive = location.pathname.includes('/programs')
+              } else {
+                isActive = location.pathname === getLocalizedPath(link.path)
+              }
               return (
                 <Link
                   key={link.key}
                   to={getLocalizedPath(link.path)}
-                  className={`text-xs lg:text-sm font-medium transition-colors relative group whitespace-nowrap ${
+                  className={`text-xs lg:text-sm font-medium transition-colors relative group whitespace-nowrap px-1 ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-foreground hover:text-primary'
@@ -153,7 +128,7 @@ export function Navigation() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-all shadow-sm hover:shadow-md whitespace-nowrap"
+              className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-all shadow-sm hover:shadow-md whitespace-nowrap flex-shrink-0"
             >
               WhatsApp: {whatsappNumber}
             </a>
@@ -161,7 +136,7 @@ export function Navigation() {
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="ml-2 flex-shrink-0"
+              className="ml-2 flex-shrink-0 min-w-[44px]"
             >
               {currentLang === 'en' ? 'FR' : 'EN'}
             </Button>
@@ -190,40 +165,33 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-3">
-              <Link
-                to={getLocalizedPath('/')}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
-              >
-                {t('nav.home')}
-              </Link>
-              
-              <div className="flex flex-col space-y-2 pl-4 border-l-2 border-border">
-                <div className="text-sm font-semibold text-primary py-1">
-                  {t('nav.programs')}
-                </div>
-                {programSubmenuItems.map((item) => (
+              {navLinks.map((link) => {
+                let isActive = false
+                if (link.key === 'home') {
+                  isActive = location.pathname === getLocalizedPath('/') || 
+                            location.pathname.endsWith('/en') ||
+                            location.pathname.endsWith('/fr')
+                } else if (link.key === 'programs') {
+                  // Highlight if on /programs or any /programs/* subpage
+                  isActive = location.pathname.includes('/programs')
+                } else {
+                  isActive = location.pathname === getLocalizedPath(link.path)
+                }
+                return (
                   <Link
-                    key={item.key}
-                    to={getLocalizedPath(item.path)}
+                    key={link.key}
+                    to={getLocalizedPath(link.path)}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-sm font-medium text-foreground hover:text-primary transition-colors py-1 pl-4"
+                    className={`text-sm font-medium transition-colors py-2 ${
+                      isActive 
+                        ? 'text-primary font-semibold' 
+                        : 'text-foreground hover:text-primary'
+                    }`}
                   >
-                    {t(`nav.programsSubmenu.${item.key}`)}
+                    {t(`nav.${link.key}`)}
                   </Link>
-                ))}
-              </div>
-
-              {navLinks.slice(1).map((link) => (
-                <Link
-                  key={link.key}
-                  to={getLocalizedPath(link.path)}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors py-2"
-                >
-                  {t(`nav.${link.key}`)}
-                </Link>
-              ))}
+                )
+              })}
               <a
                 href={whatsappLink}
                 target="_blank"

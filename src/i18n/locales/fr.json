@@ -39,8 +39,9 @@
     "coach": {
       "name": "Patrick Noben",
       "title": "Entraîneur Belge",
-      "certification": "Classé B-15 depuis 20 ans",
-      "quote": "Chaque joueur a un grand potentiel. Mon travail est de le révéler grâce à un coaching personnalisé qui rend le jeu à la fois stimulant et agréable."
+      "certification": "Classé B-15 depuis 25 ans",
+      "quote": "Chaque joueur a un grand potentiel. Mon travail est de le révéler grâce à un coaching personnalisé qui rend le jeu à la fois stimulant et agréable.",
+      "learnMore": "Qui sommes nous"
     },
     "facility": {
       "title": "1 DOMAINE EXTRAORDINAIRE",

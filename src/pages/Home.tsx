@@ -122,25 +122,25 @@ export function Home() {
 
         {/* Services as bullet points */}
         <div className="max-w-2xl mx-auto mb-6">
-          <ul className="space-y-4 text-left">
-            <li className="flex items-start gap-3">
-              <span className="text-primary text-xl font-bold mt-0.5">•</span>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3">
+              <span className="text-primary text-xl font-bold flex-shrink-0">•</span>
               <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.lessons')}</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="text-secondary text-xl font-bold mt-0.5">•</span>
+            <li className="flex items-center gap-3">
+              <span className="text-secondary text-lg font-bold flex-shrink-0">•</span>
               <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.camps')}</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="text-tertiary text-xl font-bold mt-0.5">•</span>
+            <li className="flex items-center gap-3">
+              <span className="text-tertiary text-lg font-bold flex-shrink-0">•</span>
               <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.kidsAfternoon')}</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="text-primary text-xl font-bold mt-0.5">•</span>
+            <li className="flex items-center gap-3">
+              <span className="text-primary text-lg font-bold flex-shrink-0">•</span>
               <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.rental')}</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="text-secondary text-xl font-bold mt-0.5">•</span>
+            <li className="flex items-center gap-3">
+              <span className="text-secondary text-lg font-bold flex-shrink-0">•</span>
               <span className="text-foreground text-base md:text-lg font-medium">{t('home.services.stringing')}</span>
             </li>
           </ul>
@@ -150,7 +150,7 @@ export function Home() {
         <div className="text-center">
           <Link
             to={addLanguagePrefix('/programs', lang)}
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base md:text-lg transition-colors group"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base transition-colors group"
           >
             <span>{t('home.services.checkRates')}</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -165,7 +165,7 @@ export function Home() {
 
       <ContentBlock variant="muted" className="py-4 md:py-6 lg:py-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
+          <p className="text-lg md:text-xl mb-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
           <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md overflow-hidden">
             <div className="flex flex-col md:flex-row">
               {/* Image Section */}
@@ -180,19 +180,30 @@ export function Home() {
               {/* Content Section */}
               <div className="flex-1 p-4 md:p-6 lg:p-8 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
                   <p className="text-sm md:text-base font-semibold text-foreground mb-1">{t('home.coach.title')}</p>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
+                  <p className="text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
                   
                   {/* Quote */}
                   <div className="border-l-4 border-primary/30 pl-4 md:pl-5">
-                    <p className="text-sm md:text-base lg:text-lg text-foreground italic leading-relaxed">
+                    <p className="text-base md:text-lg text-foreground italic leading-relaxed">
                       "{t('home.coach.quote')}"
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* About Us Link */}
+          <div className="mt-4 md:mt-6 text-center">
+            <Link
+              to={addLanguagePrefix('/about', lang)}
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base transition-colors group"
+            >
+              <span>{t('home.coach.learnMore')}</span>
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </ContentBlock>
@@ -206,26 +217,26 @@ export function Home() {
                 <div className="h-1 w-16 bg-secondary mx-auto lg:mx-0"></div>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-3 text-foreground">{t('home.facility.title')}</h2>
-              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 md:mb-6">{t('home.facility.subtitle')}</p>
+              <p className="text-lg md:text-xl text-muted-foreground mb-4 md:mb-6">{t('home.facility.subtitle')}</p>
             </div>
 
             <div className="mb-4 md:mb-5">
-              <p className="text-lg mb-4">{t('home.facility.description')}</p>
+              <p className="text-base md:text-lg mb-4">{t('home.facility.description')}</p>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start">
-                  <span className="text-primary mr-2 font-bold">•</span>
+                <li className="flex items-center">
+                  <span className="text-primary mr-2 font-bold flex-shrink-0">•</span>
                   <span>{t('home.facility.features.airy')}</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2 font-bold">•</span>
+                <li className="flex items-center">
+                  <span className="text-secondary mr-2 font-bold flex-shrink-0">•</span>
                   <span>{t('home.facility.features.courts')}</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-tertiary mr-2 font-bold">•</span>
+                <li className="flex items-center">
+                  <span className="text-tertiary mr-2 font-bold flex-shrink-0">•</span>
                   <span>{t('home.facility.features.basketball')}</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2 font-bold">•</span>
+                <li className="flex items-center">
+                  <span className="text-primary mr-2 font-bold flex-shrink-0">•</span>
                   <span>{t('home.facility.features.parking')}</span>
                 </li>
               </ul>

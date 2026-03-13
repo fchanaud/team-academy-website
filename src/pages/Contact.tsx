@@ -252,9 +252,11 @@ export function Contact() {
                     {...register('name')}
                     className={errors.name ? 'border-destructive' : ''}
                   />
-                  {errors.name && (
-                    <p className="text-sm text-destructive mt-1">{errors.name.message}</p>
-                  )}
+                  <div className="min-h-[20px] mt-1">
+                    {errors.name && (
+                      <p className="text-sm text-destructive">{errors.name.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -267,9 +269,11 @@ export function Contact() {
                     {...register('email')}
                     className={errors.email ? 'border-destructive' : ''}
                   />
-                  {errors.email && (
-                    <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
-                  )}
+                  <div className="min-h-[20px] mt-1">
+                    {errors.email && (
+                      <p className="text-sm text-destructive">{errors.email.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -283,9 +287,11 @@ export function Contact() {
                     {...register('whatsapp')}
                     className={errors.whatsapp ? 'border-destructive' : ''}
                   />
-                  {errors.whatsapp && (
-                    <p className="text-sm text-destructive mt-1">{errors.whatsapp.message}</p>
-                  )}
+                  <div className="min-h-[20px] mt-1">
+                    {errors.whatsapp && (
+                      <p className="text-sm text-destructive">{errors.whatsapp.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -298,9 +304,11 @@ export function Contact() {
                     {...register('message')}
                     className={errors.message ? 'border-destructive' : ''}
                   />
-                  {errors.message && (
-                    <p className="text-sm text-destructive mt-1">{errors.message.message}</p>
-                  )}
+                  <div className="min-h-[20px] mt-1">
+                    {errors.message && (
+                      <p className="text-sm text-destructive">{errors.message.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="mt-auto">
@@ -318,7 +326,7 @@ export function Contact() {
 
       <ContentBlock variant="muted" className="py-4 md:py-6 lg:py-8">
         <div className="max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl lg:text-2xl mb-3 mt-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
+          <p className="text-lg md:text-xl mb-3 mt-3 md:mb-4 text-foreground font-semibold text-center">{t('home.professional')}</p>
           <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md overflow-hidden">
             <div className="flex flex-col md:flex-row">
               {/* Image Section */}
@@ -333,13 +341,13 @@ export function Contact() {
               {/* Content Section */}
               <div className="flex-1 p-4 md:p-6 lg:p-8 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">{t('home.coach.name')}</h3>
                   <p className="text-sm md:text-base font-semibold text-foreground mb-1">{t('home.coach.title')}</p>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
+                  <p className="text-sm text-muted-foreground mb-3 md:mb-4">{t('home.coach.certification')}</p>
                   
                   {/* Quote */}
                   <div className="border-l-4 border-primary/30 pl-4 md:pl-5">
-                    <p className="text-sm md:text-base lg:text-lg text-foreground italic leading-relaxed">
+                    <p className="text-base md:text-lg text-foreground italic leading-relaxed">
                       "{t('home.coach.quote')}"
                     </p>
                   </div>

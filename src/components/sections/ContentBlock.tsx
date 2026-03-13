@@ -14,7 +14,7 @@ export function ContentBlock({ children, className, variant = 'default', id, red
     <section
       id={id}
       className={cn(
-        'pt-6 md:pt-8 lg:pt-10',
+        'pt-4 md:pt-6 lg:pt-8',
         reduceBottomPadding ? 'pb-4' : 'pb-6 md:pb-8 lg:pb-10',
         variant === 'muted' && 'bg-muted/50',
         className

@@ -30,10 +30,7 @@ export function About() {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Introduction Section */}
           <section className="text-center">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
-              {t('about.intro.title')}
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-3xl mx-auto">
               {t('about.intro.description')}
             </p>
             <p className="text-base md:text-lg text-foreground max-w-3xl mx-auto">
@@ -55,16 +52,22 @@ export function About() {
                   <p className="text-base md:text-lg text-muted-foreground mb-3">
                     {t('about.school.description')}
                   </p>
-                  <p className="text-base text-muted-foreground mb-3">
+                  <p className="text-base md:text-lg text-muted-foreground mb-3">
                     {t('about.school.approach')}
                   </p>
-                  <div className="flex items-start gap-2 mt-4">
-                    <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                    <p className="text-base text-muted-foreground">
-                      {t('about.school.location')}
-                    </p>
-                  </div>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Location Card */}
+          <Card className="border-2 border-secondary/20 shadow-md">
+            <CardContent className="p-5 md:p-6">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 md:w-6 md:h-6 text-secondary flex-shrink-0 mt-0.5" />
+                <p className="text-base md:text-lg text-muted-foreground">
+                  {t('about.school.location')}
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -119,7 +122,7 @@ export function About() {
                   <p className="text-base md:text-lg text-muted-foreground mb-4">
                     {t('about.coaches.description')}
                   </p>
-                  <p className="text-base text-muted-foreground">
+                  <p className="text-base md:text-lg text-muted-foreground">
                     {t('about.coaches.formulas')}
                   </p>
                 </CardContent>
@@ -139,14 +142,14 @@ export function About() {
               <div className="grid md:grid-cols-2 gap-5">
                 <Card className="border-2 border-primary/20 shadow-md">
                   <CardContent className="p-5 md:p-6">
-                    <p className="text-base text-muted-foreground">
+                    <p className="text-base md:text-lg text-muted-foreground">
                       {t('about.coaches.organization')}
                     </p>
                   </CardContent>
                 </Card>
                 <Card className="border-2 border-tertiary/20 shadow-md">
                   <CardContent className="p-5 md:p-6">
-                    <p className="text-base text-muted-foreground">
+                    <p className="text-base md:text-lg text-muted-foreground">
                       {t('about.coaches.planning')}
                     </p>
                   </CardContent>

@@ -28,8 +28,8 @@ export function Terms() {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Information Section */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">{t('terms.information.title')}</h2>
-            <div className="space-y-3 text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">{t('terms.information.title')}</h2>
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground">
               <p>
                 <strong className="text-foreground">
                   {t('terms.information.location').includes(':') ? (
@@ -64,8 +64,8 @@ export function Terms() {
 
           {/* Registration Section */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">{t('terms.registration.title')}</h2>
-            <div className="space-y-3 text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">{t('terms.registration.title')}</h2>
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground">
               <p>{t('terms.registration.forms')}</p>
               <p>{t('terms.registration.rates')}</p>
               <p>{t('terms.registration.commitment')}</p>
@@ -78,8 +78,8 @@ export function Terms() {
 
           {/* Absences Section */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">{t('terms.absences.title')}</h2>
-            <div className="space-y-3 text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">{t('terms.absences.title')}</h2>
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground">
               <p>{t('terms.absences.noRefund')}</p>
               <p>{t('terms.absences.medicalAbsence')}</p>
               <p>{t('terms.absences.notice')}</p>
@@ -89,8 +89,8 @@ export function Terms() {
 
           {/* Various Section */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">{t('terms.various.title')}</h2>
-            <div className="space-y-3 text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">{t('terms.various.title')}</h2>
+            <div className="space-y-3 text-base md:text-lg text-muted-foreground">
               <p>{t('terms.various.imageRights')}</p>
               <p>{t('terms.various.equipment')}</p>
             </div>
@@ -98,8 +98,8 @@ export function Terms() {
 
           {/* Remarks Section */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">{t('terms.remarks.title')}</h2>
-            <p className="text-muted-foreground">{t('terms.remarks.content')}</p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground mb-4">{t('terms.remarks.title')}</h2>
+            <p className="text-base md:text-lg text-muted-foreground">{t('terms.remarks.content')}</p>
           </section>
         </div>
       </ContentBlock>
